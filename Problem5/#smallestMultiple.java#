@@ -1,0 +1,36 @@
+import java.util.*; 
+import java.io.*;
+
+class smallestMultiple {  
+    public static int smallestMultiple() { 
+	/*2520 is the smallest number that can be divided by 
+	  each of the numbers from 1 to 10 without any remainder. 
+	  What is the smallest positive number that is evenly
+	  divisible by all of the numbers from 1 to 20?*/
+       	int ans = 0;
+	int counter = 1;
+	while(counter <= 18){
+	    ans = lcm(lcm(counter, counter+1),counter+2);
+	}
+	return ans;
+    } 
+    private static int lcm(int a, int b) {
+	int gcd = gcd(a,b);
+	return ((int)a*b)/(gcd);
+    }
+    private static int gcd(int a, int b){
+        if (a == 0){
+            return b;
+        } else if (b == 0){
+            return a;
+        } else {
+            return gcd (b, a % b);
+        }
+    }
+	    
+  
+    public static void main (String[] args) { 
+	System.out.println(smallestMultiple());
+    }   
+}
+
